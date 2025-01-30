@@ -1543,30 +1543,30 @@
             for(const os of os_info)
             {
                 const show = show_all ||
-                    filter["graphical"] && os.graphical ||
-                    filter["text"] && !os.graphical ||
-                    filter["linux"] && os.family === "Linux" ||
-                    filter["bsd"] && os.family === "BSD" ||
-                    filter["windows"] && os.family === "Windows" ||
-                    filter["unix"] && os.family === "Unix" ||
-                    filter["dos"] && os.family === "DOS" ||
-                    filter["custom"] && os.family === "Custom" ||
-                    filter["floppy"] && os.medium === "Floppy" ||
-                    filter["cd"] && os.medium === "CD" ||
-                    filter["hd"] && os.medium === "HD" ||
-                    filter["modern"] && os.status === "Modern" ||
-                    filter["historic"] && os.status === "Historic" ||
-                    filter["opensource"] && os.source === "Open-source" ||
-                    filter["proprietary"] && os.source === "Proprietary" ||
-                    filter["bootsector"] && os.size <= 512 ||
-                    filter["lt5mb"] && os.size <= 5 * 1024 * 1024 ||
-                    filter["gt5mb"] && os.size > 5 * 1024 * 1024 ||
-                    filter["16bit"] && os.arch === "16-bit" ||
-                    filter["32bit"] && os.arch === "32-bit" ||
-                    filter["asm"] && os.languages.has("ASM") ||
-                    filter["c"] && os.languages.has("C") ||
-                    filter["cpp"] && os.languages.has("C++") ||
-                    filter["other_lang"] && ["Java", "Haskell", "Rust", "Erlang", "Oberon"].some(l => os.languages.has(l));
+                    (filter["graphical"] && os.graphical &&
+                    filter["text"] && !os.graphical &&
+                    filter["linux"] && os.family === "Linux" &
+                    filter["bsd"] && os.family === "BSD" &
+                    filter["windows"] && os.family === "Windows" &
+                    filter["unix"] && os.family === "Unix" &&
+                    filter["dos"] && os.family === "DOS" &
+                    filter["custom"] && os.family === "Custom" &
+                    filter["floppy"] && os.medium === "Floppy" &
+                    filter["cd"] && os.medium === "CD" &&
+                    filter["hd"] && os.medium === "HD" &&
+                    filter["modern"] && os.status === "Modern" &&
+                    filter["historic"] && os.status === "Historic" &&
+                    filter["opensource"] && os.source === "Open-source" &&
+                    filter["proprietary"] && os.source === "Proprietary" &&
+                    filter["bootsector"] && os.size <= 512 &&
+                    filter["lt5mb"] && os.size <= 5 * 1024 * 1024 &&
+                    filter["gt5mb"] && os.size > 5 * 1024 * 1024 &&
+                    filter["16bit"] && os.arch === "16-bit" &&
+                    filter["32bit"] && os.arch === "32-bit" &&
+                    filter["asm"] && os.languages.has("ASM") &&
+                    filter["c"] && os.languages.has("C") &&
+                    filter["cpp"] && os.languages.has("C++") &&
+                    filter["other_lang"] && ["Java", "Haskell", "Rust", "Erlang", "Oberon"].some(l => os.languages.has(l)));
 
                 os.element.style.display = show ? "" : "none";
             }
